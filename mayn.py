@@ -2,25 +2,24 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# 🔑 Clave universal
-CLAVE_VALIDA = "A9X4M7K3Z1Q8"
+# 🔑 Clave universal de validación
+VALID_KEY = "A9X4M7K3Z1Q8"
 
-# 🏠 Endpoint raíz (para pruebas rápidas)
+# 🏠 Endpoint raíz (para uptime o ver si Render ya despertó)
 @app.route("/", methods=["GET"])
 def home():
-    return "Servidor activo ✅", 200
+    return "Servidor activo ✅", 200  # Siempre responde 200 OK
 
-# 🔐 Validación de licencia
+# 🔐 Endpoint de validación (POST JSON {"key": "..."})
 @app.route("/validate", methods=["POST"])
 def validate():
-    datos = request.get_json()
+    data = request.get_json()
+    if data and data.get("key") == VALID_KEY:
+        return jsonify({"status": "success"}), 200
+    return jsonify({"status": "fail"}), 403
 
-    if datos and datos.get("key") == CLAVE_VALIDA:
-        return jsonify({"estado": "exito"}), 200
-    
-    return jsonify({"estado": "fallar"}), 403
-
-
-# Para correr localmente
+# 🚀 Ejecución local (en Render se usa gunicorn con Procfile)
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
+
