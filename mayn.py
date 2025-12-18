@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# 🔑 Claves universales
+# 🔑 Claves
 VALID_KEYS = {
     "A9X4M7K3Z1Q8",
     "KEYXA4M7K3Z2VIP",
