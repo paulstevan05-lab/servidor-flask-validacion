@@ -6,6 +6,7 @@ app = Flask(__name__)
 VALID_KEYS = {
     "A9X4M7K3Z1Q8",
     "KEYXA4M7K3Z2VIP"
+    "KEYXA4M7K3Z3VIP"
 }
 
 @app.route("/", methods=["GET"])
@@ -23,6 +24,7 @@ def validate():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
 
 
 
