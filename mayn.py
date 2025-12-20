@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 # 🔑 Claves
 VALID_KEYS = {
-    "A9X4M7K3Z1Q8",
-    "KEYXA4M7K3Z7VIP",
-    "A9X4M7K3Z1Q1"
+    "A0X4M7K3Z1Q0",
+    "KEYXA4M7K3Z0VIP",
+    "A9X4M0K3Z1Q0"
 }
 
 @app.route("/", methods=["GET"])
