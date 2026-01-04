@@ -5,7 +5,7 @@ app = Flask(__name__)
 # 🔑 Claves
 VALID_KEYS = {
     "A5X4Z7K3Z1T2",
-    "A2X3Z7K3Z190",
+    "A2X3Z7K3Z180",
     "K3Y1A4T9K1Z2VIP",
     "K3YXA1M7K3Z7VIP",
     "A3X4M0K3Z1Q7"
