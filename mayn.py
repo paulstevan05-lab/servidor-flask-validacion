@@ -5,7 +5,6 @@ app = Flask(__name__)
 # 🔑 Claves
 VALID_KEYS = {
     "A5X4Z7K3Z1T2",
-    "A2X3Z7K3Z180",
     "K3Y1A4T9K1Z3VIP",
     "K3Y1A4T2K1Z1VIP",
     "K3Y1V4T3K1Z1VIP",
@@ -31,6 +30,7 @@ def validate():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
 
 
 
