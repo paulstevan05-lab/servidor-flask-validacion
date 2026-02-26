@@ -3,7 +3,6 @@ import os
 
 app = Flask(__name__)
 
-# 🔑 Claves
 VALID_KEYS = {
     "A5X4Z7K3Z1T2",
     "K3Y1A4T9K1Z3VIP",
@@ -18,20 +17,19 @@ VALID_KEYS = {
 
 @app.route("/", methods=["GET"])
 def home():
-    return "Servidor activo ✅", 200
+    return jsonify({"status": "active"}), 200
 
 @app.route("/validate", methods=["POST"])
 def validate():
     data = request.get_json()
-
     if data and data.get("key") in VALID_KEYS:
         return jsonify({"status": "success"}), 200
-
     return jsonify({"status": "fail"}), 403
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
