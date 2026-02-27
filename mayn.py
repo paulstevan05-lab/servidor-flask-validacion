@@ -11,7 +11,6 @@ VALID_KEYS = {
     "K3YXT1M7K3Z9VIP",
     "K3YXT9M7K9Z9VIX",
     "K3YXA1M7K3Z7VIP",
-    "AX4M0K3Z1VIX",
     "A3X4M0K3Z1Q7"
 }
 
@@ -29,6 +28,7 @@ def validate():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
