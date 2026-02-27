@@ -4,14 +4,7 @@ import os
 app = Flask(__name__)
 
 VALID_KEYS = {
-    "A5X4Z7K3Z1T2",
-    "K3Y1A4T9K1Z3VIP",
-    "K3Y1A4T2K1Z1VIP",
-    "K3Y1V4T3K1Z1VIP",
-    "K3YXT1M7K3Z9VIP",
-    "K3YXT9M7K9Z9VIX",
-    "K3YXA1M7K3Z7VIP",
-    "A3X4M0K3Z1Q7"
+    "A5X4Z7K3Z1T9",
 }
 
 @app.route("/", methods=["GET"])
