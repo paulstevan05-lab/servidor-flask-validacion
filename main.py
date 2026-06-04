@@ -38,7 +38,7 @@ def validate():
                 return jsonify({"status": "success", "login_type": "userpass"}), 200
                 
         # Si fallan ambos métodos
-        return jsonify({"status": "fail", "message": "Credenciales o Key inválidas"}), 403
+        return jsonify({"status": "fail", "message": "Invalid credentials"}), 403
         
     except Exception as e:
         return jsonify({"status": "fail", "error": str(e)}), 500
