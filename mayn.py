@@ -3,8 +3,21 @@ import os
 
 app = Flask(__name__)
 
+# 1. Tu lista de keys individuales (La tuya operativa sigue intacta)
 VALID_KEYS = {
     "A5X4Z7K3Z1T9",
+    # Para crear más keys, solo agregalas aquí abajo:
+    # "NUEVA_KEY_1234",
+    # "OTRA_KEY_5678",
+}
+
+# 2. Diccionario de Usuarios y Contraseñas (Puedes crear todos los que quieras)
+# El formato es "usuario": "contraseña"
+VALID_USERS = {
+    "a7f39b2c4e": "@kamikazesupport",
+    # Para crear más usuarios, solo agregalos aquí abajo siguiendo el formato:
+    # "cliente1": "mipassword123",
+    # "pedro": "clave456",
 }
 
 @app.route("/", methods=["GET"])
@@ -15,9 +28,24 @@ def home():
 def validate():
     try:
         data = request.get_json()
-        if data and data.get("key") in VALID_KEYS:
-            return jsonify({"status": "success"}), 200
-        return jsonify({"status": "fail"}), 403
+        
+        # --- MÉTODO 1: Validación por Key única ---
+        if "key" in data:
+            if data.get("key") in VALID_KEYS:
+                return jsonify({"status": "success", "login_type": "key"}), 200
+                
+        # --- MÉTODO 2: Validación por Múltiples User:Pass ---
+        elif "user" in data and "pass" in data:
+            req_user = data.get("user")
+            req_pass = data.get("pass")
+            
+            # Verificamos si el usuario existe en la lista y si su contraseña es correcta
+            if req_user in VALID_USERS and VALID_USERS[req_user] == req_pass:
+                return jsonify({"status": "success", "login_type": "userpass"}), 200
+                
+        # Si fallan ambos métodos
+        return jsonify({"status": "fail", "message": "Credenciales o Key inválidas"}), 403
+        
     except Exception as e:
         return jsonify({"status": "fail", "error": str(e)}), 500
 
