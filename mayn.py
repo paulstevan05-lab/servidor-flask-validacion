@@ -1,23 +1,18 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # <--- IMPORTANTE PARA EVITAR EL ERROR DE CONEXIÓN
 import os
 
 app = Flask(__name__)
+CORS(app)  # <--- HABILITA CORS PARA TODA LA APP
 
 # 1. Tu lista de keys individuales (La tuya operativa sigue intacta)
 VALID_KEYS = {
     "A5X4Z7K3Z1T9",
-    # Para crear más keys, solo agregalas aquí abajo:
-    # "NUEVA_KEY_1234",
-    # "OTRA_KEY_5678",
 }
 
-# 2. Diccionario de Usuarios y Contraseñas (Puedes crear todos los que quieras)
-# El formato es "usuario": "contraseña"
+# 2. Diccionario de Usuarios y Contraseñas
 VALID_USERS = {
     "a7f39b2c4e": "@kamikazesupport",
-    # Para crear más usuarios, solo agregalos aquí abajo siguiendo el formato:
-    # "cliente1": "mipassword123",
-    # "pedro": "clave456",
 }
 
 @app.route("/", methods=["GET"])
@@ -39,7 +34,6 @@ def validate():
             req_user = data.get("user")
             req_pass = data.get("pass")
             
-            # Verificamos si el usuario existe en la lista y si su contraseña es correcta
             if req_user in VALID_USERS and VALID_USERS[req_user] == req_pass:
                 return jsonify({"status": "success", "login_type": "userpass"}), 200
                 
