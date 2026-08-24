@@ -14,7 +14,7 @@ VALID_KEYS = {
 VALID_USERS = {
     "a7f39b2c4e": "@kamikazesupport",
     "tedm4ster": "tedm4ster",
-    "a7f39b2c4e",
+    "a7f39b2c4e": "a7f39b2c4e",
 }
 
 @app.route("/", methods=["GET"])
