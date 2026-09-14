@@ -7,7 +7,7 @@ CORS(app)  # <--- HABILITA CORS PARA TODA LA APP
 
 # 1. Tu lista de keys individuales (La tuya operativa sigue intacta)
 VALID_KEYS = {
-    "A5X4Z7K3Z1T9",
+    "A5X4Z7K3Z1T",
 }
 
 # 2. Diccionario de Usuarios y Contraseñas
