@@ -13,7 +13,7 @@ VALID_KEYS = {
 # 2. Diccionario de Usuarios y Contraseñas
 VALID_USERS = {
     "a7f39b2c4e": "@kamikazesupport",
-    "tedm4ster": "tedm4ster",
+    "tedm4ste": "tedm4ste",
     "a7f39b2c4e": "a7f39b2c4e",
 }
 
